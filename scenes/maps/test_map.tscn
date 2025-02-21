@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=4 uid="uid://dqno4x7tky8x5"]
+
+[ext_resource type="PackedScene" uid="uid://dfeqmtb8gkcu4" path="res://scenes/testing_ground.tscn" id="1_qtuht"]
+[ext_resource type="PackedScene" uid="uid://bm4qkrmykjomm" path="res://scenes/player.tscn" id="2_cf7dj"]
+
+[node name="TestMap" type="Node2D"]
+
+[node name="TestingGround" parent="." instance=ExtResource("1_qtuht")]
+tile_map_data = PackedByteArray("AAD8/wQAAQAAAAAAAAD9/wQAAQAAAAAAAAD+/wQAAQAAAAAAAAD//wQAAQAAAAAAAAAAAAQAAQAAAAAAAAABAAQAAQAAAAAAAAACAAQAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAQAAQAAAAAAAAAGAAQAAQAAAAAAAAAGAAMAAQAAAAAAAAAGAAIAAQAAAAAAAAAFAAIAAQAAAAAAAAAEAAIAAQAAAAAAAAADAAIAAQAAAAAAAAADAAMAAQAAAAAAAAAEAAMAAQAAAAAAAAAFAAMAAQAAAAAAAAAGAAEAAQAAAAAAAAAGAAAAAQAAAAAAAAAGAP//AQAAAAAAAAD9/wIAAQAAAAAAAAD8/wIAAQAAAAAAAAD7/wIAAQAAAAAAAAD7/wQAAQAAAAAAAAD6/wQAAQAAAAAAAAA=")
+
+[node name="Player" parent="." instance=ExtResource("2_cf7dj")]
+position = Vector2(61, 153)
