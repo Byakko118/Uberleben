@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bm4qkrmykjomm"]
+[gd_scene load_steps=7 format=3 uid="uid://bm4qkrmykjomm"]
 
 [ext_resource type="PackedScene" uid="uid://boc5we2vs43e0" path="res://scenes/components/control.tscn" id="1_p4dwa"]
 [ext_resource type="PackedScene" uid="uid://cdei7pn6mbpm5" path="res://scenes/components/gravity.tscn" id="2_a3piw"]
+[ext_resource type="PackedScene" uid="uid://m88fywlmsl4r" path="res://scenes/components/tile_destroy.tscn" id="3_252aa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jfhip"]
+radius = 194.041
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8pq5a"]
 
@@ -9,6 +13,12 @@
 size = Vector2(24, 48)
 
 [node name="Player" type="CharacterBody2D"]
+
+[node name="ReachArea" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReachArea"]
+shape = SubResource("CircleShape2D_jfhip")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(24, 48)
@@ -18,11 +28,10 @@ texture = SubResource("PlaceholderTexture2D_8pq5a")
 shape = SubResource("RectangleShape2D_4crhb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position_smoothing_enabled = true
-rotation_smoothing_enabled = true
 
-[node name="Control" parent="." node_paths=PackedStringArray("parent_node") instance=ExtResource("1_p4dwa")]
-parent_node = NodePath("..")
+[node name="Control" parent="." instance=ExtResource("1_p4dwa")]
 
 [node name="Gravity" parent="." node_paths=PackedStringArray("parent_node") instance=ExtResource("2_a3piw")]
 parent_node = NodePath("..")
+
+[node name="TileDestroy" parent="." instance=ExtResource("3_252aa")]

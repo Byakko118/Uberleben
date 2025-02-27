@@ -1,9 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfeqmtb8gkcu4"]
+[gd_scene load_steps=8 format=3 uid="uid://dfeqmtb8gkcu4"]
 
-[ext_resource type="Texture2D" uid="uid://dgge4a6iigydm" path="res://resources/placeholder_tile.png" id="1_pnrh3"]
+[ext_resource type="Texture2D" uid="uid://bdfgssahq3yqh" path="res://resources/test_tiles_1.png" id="1_nqve7"]
+[ext_resource type="Texture2D" uid="uid://7ksd8tlyfoyn" path="res://resources/test_tiles_2.png" id="2_a7otp"]
+[ext_resource type="Texture2D" uid="uid://pwcolwbwpjf8" path="res://resources/test_tiles_3.png" id="3_b7gcc"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kph7n"]
-texture = ExtResource("1_pnrh3")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_besjd"]
+texture = ExtResource("1_nqve7")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qab45"]
+texture = ExtResource("2_a7otp")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ug7x"]
+texture = ExtResource("3_b7gcc")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -11,7 +25,9 @@ texture_region_size = Vector2i(64, 64)
 [sub_resource type="TileSet" id="TileSet_l36v3"]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_kph7n")
+sources/1 = SubResource("TileSetAtlasSource_besjd")
+sources/2 = SubResource("TileSetAtlasSource_qab45")
+sources/3 = SubResource("TileSetAtlasSource_6ug7x")
 
 [node name="TestingGround" type="TileMapLayer"]
 tile_set = SubResource("TileSet_l36v3")
