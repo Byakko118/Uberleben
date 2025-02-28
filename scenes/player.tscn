@@ -1,11 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bm4qkrmykjomm"]
+[gd_scene load_steps=6 format=3 uid="uid://bm4qkrmykjomm"]
 
 [ext_resource type="PackedScene" uid="uid://boc5we2vs43e0" path="res://scenes/components/control.tscn" id="1_p4dwa"]
 [ext_resource type="PackedScene" uid="uid://cdei7pn6mbpm5" path="res://scenes/components/gravity.tscn" id="2_a3piw"]
 [ext_resource type="PackedScene" uid="uid://m88fywlmsl4r" path="res://scenes/components/tile_destroy.tscn" id="3_252aa"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_jfhip"]
-radius = 194.041
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8pq5a"]
 
@@ -13,12 +10,6 @@ radius = 194.041
 size = Vector2(24, 48)
 
 [node name="Player" type="CharacterBody2D"]
-
-[node name="ReachArea" type="Area2D" parent="."]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ReachArea"]
-shape = SubResource("CircleShape2D_jfhip")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(24, 48)

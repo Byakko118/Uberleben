@@ -4,7 +4,7 @@ extends Node
 @export var acceleration := 2000.0
 @export var friction := 2000.0
 @export var jump_velocity := -500.0
-@export var air_control_factor := 0.5  # Reduced control in air
+@export var air_control_factor := 0.5  
 
 var parent: CharacterBody2D
 
@@ -38,7 +38,6 @@ func apply_acceleration(delta: float, target_velocity: float):
 
 func apply_air_control(delta: float, target_velocity: float):
 	if target_velocity != 0:
-		# Reduced control while in the air
 		parent.velocity.x = move_toward(
 			parent.velocity.x, 
 			target_velocity, 
