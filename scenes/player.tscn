@@ -19,6 +19,8 @@ texture = SubResource("PlaceholderTexture2D_8pq5a")
 shape = SubResource("RectangleShape2D_4crhb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
 
 [node name="Control" parent="." instance=ExtResource("1_p4dwa")]
 
