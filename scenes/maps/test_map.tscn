@@ -1,12 +1,34 @@
-[gd_scene load_steps=3 format=4 uid="uid://dqno4x7tky8x5"]
+[gd_scene load_steps=5 format=4 uid="uid://dqno4x7tky8x5"]
 
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_dnuxw"]
 [ext_resource type="PackedScene" uid="uid://dfeqmtb8gkcu4" path="res://scenes/testing_ground.tscn" id="1_qtuht"]
 [ext_resource type="PackedScene" uid="uid://bm4qkrmykjomm" path="res://scenes/player.tscn" id="2_cf7dj"]
+[ext_resource type="PackedScene" uid="uid://d0lq86ymrkugx" path="res://scenes/inventory/inventory.tscn" id="3_3jdpq"]
 
 [node name="TestMap" type="Node2D"]
+position = Vector2(512, 168)
+script = ExtResource("1_dnuxw")
 
 [node name="TestingGround" parent="." instance=ExtResource("1_qtuht")]
 tile_map_data = PackedByteArray("AAD8/wQAAQAAAAAAAAD9/wQAAQAAAAAAAAD+/wQAAQAAAAAAAAD//wQAAQAAAAAAAAAAAAQAAQAAAAAAAAABAAQAAQAAAAAAAAACAAQAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAQAAQAAAAAAAAAGAAQAAQAAAAAAAAAGAAMAAQAAAAAAAAAGAAIAAQAAAAAAAAAFAAIAAQAAAAAAAAAEAAIAAQAAAAAAAAADAAIAAQAAAAAAAAADAAMAAQAAAAAAAAAEAAMAAQAAAAAAAAAFAAMAAQAAAAAAAAAGAAEAAQAAAAAAAAAGAAAAAQAAAAAAAAAGAP//AQAAAAAAAAD9/wIAAQAAAAAAAAD8/wIAAQAAAAAAAAD7/wIAAQAAAAAAAAD7/wQAAQAAAAAAAAD6/wQAAQAAAAAAAAA=")
 
 [node name="Player" parent="." instance=ExtResource("2_cf7dj")]
 position = Vector2(61, 153)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="InventoryGui" parent="CanvasLayer" instance=ExtResource("3_3jdpq")]
+visible = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -267.0
+offset_top = -177.0
+offset_right = 1.0
+offset_bottom = -2.0
+
+[connection signal="closed" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_closed"]
+[connection signal="opened" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_opened"]
