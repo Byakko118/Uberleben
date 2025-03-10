@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d0lq86ymrkugx"]
 
 [ext_resource type="Texture2D" uid="uid://xw7svbkbh2km" path="res://resources/slot.png" id="1_r7v2a"]
-[ext_resource type="Script" path="res://scripts/inventory.gd" id="1_x0dno"]
+[ext_resource type="Script" uid="uid://bhv36afq2txmt" path="res://scripts/inventory.gd" id="1_x0dno"]
 [ext_resource type="PackedScene" uid="uid://ei7qy7ho4utb" path="res://scenes/inventory/slot.tscn" id="2_ubtfv"]
 [ext_resource type="PackedScene" uid="uid://2a24wf8dtcxn" path="res://scenes/components/inventory_control.tscn" id="4_a603s"]
 

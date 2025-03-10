@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bggep34luvm8p"]
+
+[ext_resource type="Script" uid="uid://c4tgqhjdxwsqt" path="res://scripts/classes/collectable.gd" id="1_34e4b"]
+[ext_resource type="Texture2D" uid="uid://yx6wf2wayseq" path="res://resources/items/stone.png" id="2_03mal"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ibx7c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qoqmi"]
+radius = 15.0
+
+[node name="Collectable" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_34e4b")
+item_name = "Stones"
+metadata/_custom_type_script = "uid://c4tgqhjdxwsqt"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_03mal")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_ibx7c")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, -1)
+shape = SubResource("CircleShape2D_qoqmi")
