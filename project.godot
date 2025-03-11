@@ -24,6 +24,10 @@ PlayerInventory="*res://scripts/global/player_inventory.gd"
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 
+[global_group]
+
+Player=""
+
 [input]
 
 up={

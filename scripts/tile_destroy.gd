@@ -16,6 +16,16 @@ func is_player_in_tile(tilemap: TileMapLayer, player_position: Vector2, target_c
 	var player_tile_coords = tilemap.local_to_map(player_position)
 	return player_tile_coords == target_coords
 	
+func is_rigidbody_in_tile(tilemap: TileMapLayer, coords: Vector2i) -> bool:
+	var tile_position = tilemap.local_to_map(coords)
+	var tile_rect = Rect2(tile_position, tilemap.cell_size)
+	for node in get_tree().get_nodes_in_group("RigidBodies"):
+		if node is RigidBody2D:
+			var node_position = node.global_position
+			if tile_rect.has_point(node_position):
+				return true
+	return false # ZROBIĆ TO
+	
 func tile_exists_at(tilemap: TileMapLayer, coords: Vector2i):
 	return tilemap.get_cell_source_id(coords) != -1
 	
@@ -44,7 +54,7 @@ func _input(event):
 		
 	if Input.is_action_just_pressed("action2"):
 		var tile = get_tile_from_mouse_position()
-		if is_player_in_tile(tile_map, _parent.position, tile) or tile_exists_at(tile_map, tile) or !tile_has_surrounding_tiles(tile_map, tile) or get_player_distance_from_mouse() > reach_range:
+		if is_player_in_tile(tile_map, _parent.position, tile) or tile_exists_at(tile_map, tile) or !tile_has_surrounding_tiles(tile_map, tile) or get_player_distance_from_mouse() > reach_range or is_rigidbody_in_tile(tile_map, tile):
 			return
 		tile_map.set_cell(tile, block_equipped, Vector2i(0,0))
 		

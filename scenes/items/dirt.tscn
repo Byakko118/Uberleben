@@ -1,26 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlcyiev1p5wig"]
+[gd_scene load_steps=5 format=3 uid="uid://b1vi80fwiapc2"]
 
-[ext_resource type="Script" uid="uid://c4tgqhjdxwsqt" path="res://scripts/classes/collectable.gd" id="1_lhkcp"]
-[ext_resource type="Texture2D" uid="uid://x2ybrkxnk4ll" path="res://resources/items/sand.png" id="2_orjcp"]
+[ext_resource type="Script" uid="uid://c4tgqhjdxwsqt" path="res://scripts/classes/collectable.gd" id="1_mg6nk"]
+[ext_resource type="Texture2D" uid="uid://dhfjvpg4wbqh5" path="res://resources/items/dirt.png" id="2_mg6nk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibx7c"]
-size = Vector2(24, 18)
+size = Vector2(18, 19)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qoqmi"]
-radius = 15.0
+radius = 14.0
 
 [node name="Collectable" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 5
-script = ExtResource("1_lhkcp")
-item_name = "Sand"
+script = ExtResource("1_mg6nk")
+item_name = "Dirt"
 metadata/_custom_type_script = "uid://c4tgqhjdxwsqt"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_orjcp")
+texture = ExtResource("2_mg6nk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(-1, 1.5)
 shape = SubResource("RectangleShape2D_ibx7c")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -28,5 +28,5 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 2)
+position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_qoqmi")
