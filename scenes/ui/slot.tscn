@@ -1,0 +1,99 @@
+[gd_scene load_steps=6 format=3 uid="uid://b66pceckweoab"]
+
+[ext_resource type="Texture2D" uid="uid://dhfjvpg4wbqh5" path="res://resources/items/dirt.png" id="1_jkamp"]
+[ext_resource type="Script" uid="uid://bh3u1r1j8v5di" path="res://scripts/slot.gd" id="1_sad2q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_284y0"]
+bg_color = Color(0.250441, 0.439753, 0.893418, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.146585, 0.314672, 0.75097, 1)
+corner_radius_top_left = 10
+corner_radius_bottom_right = 10
+shadow_color = Color(0, 0, 0, 0.486275)
+shadow_size = 5
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="FontFile" id="FontFile_284y0"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hj6hg"]
+bg_color = Color(0.459845, 0.619476, 0.96585, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="PanelContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(600, 100)
+theme_override_styles/panel = SubResource("StyleBoxFlat_284y0")
+script = ExtResource("1_sad2q")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Button" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_fonts/font = SubResource("FontFile_284y0")
+theme_override_font_sizes/font_size = 40
+text = "Throw"
+
+[node name="PanelContainer2" type="HBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/PanelContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer2/AspectRatioContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hj6hg")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer2/AspectRatioContainer/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("1_jkamp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NameLabel" type="RichTextLabel" parent="MarginContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+text = "###"
+fit_content = true
+
+[node name="AmountLabel" type="RichTextLabel" parent="MarginContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+text = "2
+"
+fit_content = true

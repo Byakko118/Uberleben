@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=4 uid="uid://dqno4x7tky8x5"]
+
+[ext_resource type="PackedScene" uid="uid://dfeqmtb8gkcu4" path="res://scenes/testing_ground.tscn" id="1_qtuht"]
+[ext_resource type="PackedScene" uid="uid://bm4qkrmykjomm" path="res://scenes/player.tscn" id="2_cf7dj"]
+[ext_resource type="PackedScene" uid="uid://bggep34luvm8p" path="res://scenes/items/rocks.tscn" id="5_a3b3n"]
+[ext_resource type="PackedScene" uid="uid://b1vi80fwiapc2" path="res://scenes/items/dirt.tscn" id="5_qoqmi"]
+[ext_resource type="PackedScene" uid="uid://dlcyiev1p5wig" path="res://scenes/items/sand.tscn" id="6_pjele"]
+[ext_resource type="PackedScene" uid="uid://mxf7pl0u8wqc" path="res://scenes/ui/user_interface.tscn" id="6_qoqmi"]
+
+[node name="TestMap" type="Node2D"]
+
+[node name="TestingGround" parent="." instance=ExtResource("1_qtuht")]
+tile_map_data = PackedByteArray("AAD8/wQAAQAAAAAAAAD9/wQAAQAAAAAAAAD+/wQAAQAAAAAAAAD//wQAAQAAAAAAAAAAAAQAAQAAAAAAAAABAAQAAQAAAAAAAAACAAQAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAQAAQAAAAAAAAAGAAQAAQAAAAAAAAAGAAMAAQAAAAAAAAAGAAIAAQAAAAAAAAAFAAIAAQAAAAAAAAAEAAIAAQAAAAAAAAADAAIAAQAAAAAAAAADAAMAAQAAAAAAAAAEAAMAAQAAAAAAAAAFAAMAAQAAAAAAAAAGAAEAAQAAAAAAAAAGAAAAAQAAAAAAAAAGAP//AQAAAAAAAAD9/wIAAQAAAAAAAAD8/wIAAQAAAAAAAAD7/wIAAQAAAAAAAAD7/wQAAQAAAAAAAAD6/wQAAQAAAAAAAAA=")
+
+[node name="Player" parent="." instance=ExtResource("2_cf7dj")]
+position = Vector2(274, 28)
+collision_layer = 2
+
+[node name="Collectable" parent="." instance=ExtResource("5_a3b3n")]
+position = Vector2(-111, 138)
+
+[node name="Collectable2" parent="." instance=ExtResource("5_a3b3n")]
+position = Vector2(-74, 90)
+
+[node name="Collectable3" parent="." instance=ExtResource("5_a3b3n")]
+position = Vector2(-146, 99)
+
+[node name="Collectable4" parent="." instance=ExtResource("5_qoqmi")]
+position = Vector2(-344, 169)
+
+[node name="Collectable5" parent="." instance=ExtResource("5_qoqmi")]
+position = Vector2(-342, 195)
+
+[node name="Collectable6" parent="." instance=ExtResource("5_qoqmi")]
+position = Vector2(-320, 217)
+
+[node name="Collectable7" parent="." instance=ExtResource("5_qoqmi")]
+position = Vector2(-342, 229)
+
+[node name="Collectable8" parent="." instance=ExtResource("6_pjele")]
+position = Vector2(359, 100)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UserInterface" parent="CanvasLayer" instance=ExtResource("6_qoqmi")]
+visible = false
