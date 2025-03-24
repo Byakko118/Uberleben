@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b66pceckweoab"]
 
-[ext_resource type="Texture2D" uid="uid://dhfjvpg4wbqh5" path="res://resources/items/dirt.png" id="1_jkamp"]
+[ext_resource type="Texture2D" uid="uid://dhfjvpg4wbqh5" path="res://resources/items/dirt.png" id="1_kscix"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_284y0"]
 bg_color = Color(0.250441, 0.439753, 0.893418, 1)
@@ -42,7 +42,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="PanelContainer" type="PanelContainer"]
+[node name="InventorySlot" type="PanelContainer"]
 custom_minimum_size = Vector2(600, 100)
 theme_override_styles/panel = SubResource("StyleBoxFlat_284y0")
 
@@ -77,7 +77,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_hj6hg")
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer2/AspectRatioContainer/PanelContainer"]
 layout_mode = 2
-texture = ExtResource("1_jkamp")
+texture = ExtResource("1_kscix")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer2"]
 custom_minimum_size = Vector2(100, 0)

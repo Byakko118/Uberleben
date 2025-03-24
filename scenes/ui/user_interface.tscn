@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://mxf7pl0u8wqc"]
+[gd_scene load_steps=4 format=3 uid="uid://mxf7pl0u8wqc"]
 
-[ext_resource type="PackedScene" uid="uid://b66pceckweoab" path="res://scenes/ui/slot.tscn" id="1_284y0"]
+[ext_resource type="PackedScene" uid="uid://b66pceckweoab" path="res://scenes/ui/inventory_slot.tscn" id="1_284y0"]
+[ext_resource type="Script" uid="uid://o14dbup6idhq" path="res://scripts/inventory.gd" id="1_hj6hg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fueo"]
 bg_color = Color(0.392157, 0.541176, 0.760784, 1)
@@ -18,7 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="PanelContainer" parent="."]
+[node name="Inventory" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(800, 500)
 layout_mode = 1
 anchors_preset = 8
@@ -33,11 +34,12 @@ offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2fueo")
+script = ExtResource("1_hj6hg")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Inventory"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Inventory/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -46,8 +48,8 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="SlotContainer" type="VBoxContainer" parent="Panel/ScrollContainer/MarginContainer"]
+[node name="SlotContainer" type="VBoxContainer" parent="Inventory/ScrollContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="PanelContainer" parent="Panel/ScrollContainer/MarginContainer/SlotContainer" instance=ExtResource("1_284y0")]
+[node name="InventorySlot" parent="Inventory/ScrollContainer/MarginContainer/SlotContainer" instance=ExtResource("1_284y0")]
 layout_mode = 2
