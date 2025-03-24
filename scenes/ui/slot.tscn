@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b66pceckweoab"]
+[gd_scene load_steps=5 format=3 uid="uid://b66pceckweoab"]
 
 [ext_resource type="Texture2D" uid="uid://dhfjvpg4wbqh5" path="res://resources/items/dirt.png" id="1_jkamp"]
-[ext_resource type="Script" uid="uid://bh3u1r1j8v5di" path="res://scripts/slot.gd" id="1_sad2q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_284y0"]
 bg_color = Color(0.250441, 0.439753, 0.893418, 1)
@@ -46,7 +45,6 @@ corner_radius_bottom_left = 5
 [node name="PanelContainer" type="PanelContainer"]
 custom_minimum_size = Vector2(600, 100)
 theme_override_styles/panel = SubResource("StyleBoxFlat_284y0")
-script = ExtResource("1_sad2q")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
