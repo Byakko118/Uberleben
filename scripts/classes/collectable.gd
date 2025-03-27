@@ -1,9 +1,11 @@
 extends RigidBody2D
-
 class_name Collectable
 
 @export var item_name: String
 var icon: CompressedTexture2D
+
+signal item_created
+signal item_added
 
 func add_to_inventory():
 	if not PlayerInventory:
@@ -11,11 +13,13 @@ func add_to_inventory():
 		return
 	if item_name in PlayerInventory.inventory_items:
 		PlayerInventory.inventory_items[item_name]["quantity"] += 1
+		emit_signal("item_added")
 	else:
 		PlayerInventory.inventory_items[item_name] = {
 			"quantity": 1,
 			"icon": icon
 		}
+		emit_signal("item_created")
 
 func _ready():
 	var children = get_children()

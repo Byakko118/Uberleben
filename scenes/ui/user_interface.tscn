@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://mxf7pl0u8wqc"]
+[gd_scene load_steps=3 format=3 uid="uid://mxf7pl0u8wqc"]
 
 [ext_resource type="PackedScene" uid="uid://b66pceckweoab" path="res://scenes/ui/inventory_slot.tscn" id="1_284y0"]
-[ext_resource type="Script" uid="uid://o14dbup6idhq" path="res://scripts/inventory.gd" id="1_hj6hg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fueo"]
 bg_color = Color(0.392157, 0.541176, 0.760784, 1)
@@ -34,7 +33,6 @@ offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2fueo")
-script = ExtResource("1_hj6hg")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Inventory"]
 layout_mode = 2
