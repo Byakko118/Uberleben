@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b66pceckweoab"]
+[gd_scene load_steps=6 format=3 uid="uid://b66pceckweoab"]
 
 [ext_resource type="Texture2D" uid="uid://dhfjvpg4wbqh5" path="res://resources/items/dirt.png" id="1_kscix"]
+[ext_resource type="Script" uid="uid://bdtlllvgph8ih" path="res://scripts/inventory_slot.gd" id="1_ru537"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_284y0"]
 bg_color = Color(0.250441, 0.439753, 0.893418, 1)
@@ -45,6 +46,7 @@ corner_radius_bottom_left = 5
 [node name="InventorySlot" type="PanelContainer"]
 custom_minimum_size = Vector2(600, 100)
 theme_override_styles/panel = SubResource("StyleBoxFlat_284y0")
+script = ExtResource("1_ru537")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -95,3 +97,5 @@ layout_mode = 2
 text = "2
 "
 fit_content = true
+
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]
