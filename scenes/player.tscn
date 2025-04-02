@@ -1,15 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bm4qkrmykjomm"]
+[gd_scene load_steps=7 format=3 uid="uid://bm4qkrmykjomm"]
 
 [ext_resource type="PackedScene" uid="uid://boc5we2vs43e0" path="res://scenes/components/control.tscn" id="1_p4dwa"]
 [ext_resource type="PackedScene" uid="uid://cdei7pn6mbpm5" path="res://scenes/components/gravity.tscn" id="2_a3piw"]
 [ext_resource type="PackedScene" uid="uid://m88fywlmsl4r" path="res://scenes/components/tile_destroy.tscn" id="3_252aa"]
+[ext_resource type="PackedScene" uid="uid://b726g1qqxa80i" path="res://scenes/components/ui_control.tscn" id="4_dqkch"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8pq5a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4crhb"]
 size = Vector2(24, 48)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(24, 48)
@@ -28,3 +29,5 @@ rotation_smoothing_enabled = true
 parent_node = NodePath("..")
 
 [node name="TileDestroy" parent="." instance=ExtResource("3_252aa")]
+
+[node name="UiControl" parent="." instance=ExtResource("4_dqkch")]

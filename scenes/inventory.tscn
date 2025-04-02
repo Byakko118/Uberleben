@@ -1,6 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bdsdpu7j47p48"]
 
-[ext_resource type="Texture2D" uid="uid://ql0fbks0j03q" path="res://resources/placeholder_item.png" id="1_xjqmr"]
+[ext_resource type="Script" uid="uid://v7evf040bx14" path="res://scripts/inventory_ui.gd" id="1_hj2ta"]
+[ext_resource type="PackedScene" uid="uid://cwtep3t2ejdij" path="res://scenes/item_row.tscn" id="1_qw0r6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugohe"]
 bg_color = Color(0, 0, 0, 0.447059)
@@ -17,21 +18,17 @@ corner_radius_bottom_left = 10
 shadow_offset = Vector2(5, 5)
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_keaiw"]
-bg_color = Color(0, 0, 0, 0.54902)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-anti_aliasing = false
-
-[node name="Inventory" type="Control"]
+[node name="Inventory" type="Control" node_paths=PackedStringArray("slots_container")]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_hj2ta")
+slot_scene = ExtResource("1_qw0r6")
+slots_container = NodePath("MainContainer/MarginContainer/ScrollContainer/VBoxContainer")
 
 [node name="MainContainer" type="Panel" parent="."]
 custom_minimum_size = Vector2(700, 500)
@@ -64,57 +61,3 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="Panel" type="Panel" parent="MainContainer/MarginContainer/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_keaiw")
-
-[node name="MarginContainer" type="MarginContainer" parent="MainContainer/MarginContainer/ScrollContainer/VBoxContainer/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MainContainer/MarginContainer/ScrollContainer/VBoxContainer/Panel/MarginContainer"]
-layout_direction = 2
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="TextureRect" type="TextureRect" parent="MainContainer/MarginContainer/ScrollContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("1_xjqmr")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="RichTextLabel" type="RichTextLabel" parent="MainContainer/MarginContainer/ScrollContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 4
-text = "Penis
-Penis 2"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="MainContainer/MarginContainer/ScrollContainer/VBoxContainer/Panel/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-alignment = 2
-
-[node name="Button2" type="Button" parent="MainContainer/MarginContainer/ScrollContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Select"
-
-[node name="Button" type="Button" parent="MainContainer/MarginContainer/ScrollContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer3"]
-layout_mode = 2
-size_flags_vertical = 4
-text = "Drop"
