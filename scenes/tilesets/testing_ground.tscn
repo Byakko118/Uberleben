@@ -5,18 +5,21 @@
 [ext_resource type="Texture2D" uid="uid://pwcolwbwpjf8" path="res://resources/item_sprites/test_sprites/test_tiles_3.png" id="3_b7gcc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_besjd"]
+resource_name = "Dirt"
 texture = ExtResource("1_nqve7")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qab45"]
+resource_name = "Stone"
 texture = ExtResource("2_a7otp")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ug7x"]
+resource_name = "Sand"
 texture = ExtResource("3_b7gcc")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -26,9 +29,9 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 7
-sources/1 = SubResource("TileSetAtlasSource_besjd")
-sources/2 = SubResource("TileSetAtlasSource_qab45")
-sources/3 = SubResource("TileSetAtlasSource_6ug7x")
+sources/0 = SubResource("TileSetAtlasSource_besjd")
+sources/1 = SubResource("TileSetAtlasSource_qab45")
+sources/2 = SubResource("TileSetAtlasSource_6ug7x")
 
 [node name="TestingGround" type="TileMapLayer"]
 tile_set = SubResource("TileSet_l36v3")
