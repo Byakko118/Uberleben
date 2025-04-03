@@ -80,12 +80,10 @@ func try_place_tile(tile: Vector2i) -> void:
 		InventoryManager.modify_item_quantity(selected_item, -1)
 
 func spawn_item_in_world(item_id: InventoryManager.ItemID, tile_position: Vector2i) -> void:
-	# Get tile center position
 	var tile_local_pos: Vector2 = tile_map.map_to_local(tile_position)
 	var tile_size: Vector2 = tile_map.tile_set.tile_size
-	var tile_center_local := tile_local_pos + (tile_size / 2)
-	var tile_center_global: Vector2 = tile_map.to_global(tile_center_local)
-	#TODO Fix the centering
+	
+	var tile_center_global: Vector2 = tile_map.to_global(tile_local_pos)
 
 	# Create item instance
 	var item_scene: PackedScene = load("res://scenes/bases/item_base.tscn")
