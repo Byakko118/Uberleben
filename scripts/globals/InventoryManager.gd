@@ -7,12 +7,12 @@ enum ItemID { DIRT = 0, STONE, SAND }
 
 # Initialize with starting quantities
 var items: Dictionary = {
-	ItemID.DIRT:  { "name": "dirt",  "quantity": 5 },
-	ItemID.STONE: { "name": "stone", "quantity": 0 },
-	ItemID.SAND:  { "name": "sand",  "quantity": 2 }
+	ItemID.DIRT:  { "name": "dirt",  "quantity": 5, "is_placable": true, "drops_itself": true },
+	ItemID.STONE: { "name": "stone", "quantity": 12, "is_placable": true, "drops_itself": true },
+	ItemID.SAND:  { "name": "sand",  "quantity": 2, "is_placable": true, "drops_itself": true }
 }
 
-var selected_item: ItemID = ItemID.DIRT  # Default selection (could also be null)
+var selected_item: ItemID = ItemID.STONE  # Default selection (could also be null)
 
 const ITEM_TEXTURES = {
 	ItemID.DIRT:  preload("res://resources/item_sprites/Dirt.png"),
@@ -68,3 +68,11 @@ func get_all_items() -> Array:
 		if items[item_id]["quantity"] > 0:
 			valid_items.append(item_id)
 	return valid_items
+
+func is_selected_item_placable() -> bool:
+	if not has_selected_item():
+		return false
+	return items.get(get_selected_item(), {}).get("is_placable", false)
+
+func drops_itself(item_id: ItemID) -> bool:
+	return items.get(item_id, {}).get("drops_itself")
