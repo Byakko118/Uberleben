@@ -2,7 +2,7 @@
 extends Resource
 class_name ItemStats
 
-@export var id: InventoryManager.ItemID = 0:
+@export var id: InventoryManager.ItemID = InventoryManager.ItemID.EMPTY:
 	set(new_id):
 		id = new_id
 		emit_changed()

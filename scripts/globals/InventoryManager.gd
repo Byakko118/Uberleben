@@ -15,6 +15,16 @@ var items: Dictionary = {
 	ItemID.WOOD:  { "name": "Wood",  "quantity": 2, "is_placable": true, "drops_itself": true },
 }
 
+# Crafting recepies
+var crafting_recipes: Dictionary = {
+	ItemID.PLANKS: {
+		"code": ["brett", "planke"],  # Multiple input phrases
+		"output_quantity": 4,
+		"inputs": { ItemID.WOOD: 1 },        # Simplified input format
+		"category": "basic",
+	},
+}
+
 var selected_item: ItemID = ItemID.EMPTY  # Default selection (could also be null)
 
 const ITEM_TEXTURES = {
@@ -36,7 +46,7 @@ func modify_item_quantity(item_id: ItemID, quantity: int) -> void:
 	
 	# If selected item runs out, auto-deselect it
 	if item_id == selected_item and items[item_id]["quantity"] <= 0:
-		set_selected_item(-1)
+		set_selected_item(ItemID.EMPTY)
 
 ### --- Selection Management ---
 func set_selected_item(item_id: ItemID) -> void:

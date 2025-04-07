@@ -12,6 +12,8 @@ func _ready():
 	InventoryManager.inventory_updated.connect(_on_inventory_updated)
 	# Initial setup
 	refresh_inventory()
+	# Ensure game isn't paused when starting
+	get_tree().paused = false
 
 func _on_inventory_updated(_item_id: int, _quantity: int):
 	refresh_inventory()
@@ -38,3 +40,5 @@ func _create_slot(item_id: int):
 func toggle_inventory():
 	is_open = not is_open
 	visible = is_open
+	# Pause the game when inventory is open, unpause when closed
+	get_tree().paused = is_open

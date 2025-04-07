@@ -56,7 +56,7 @@ func try_break_tile(tile: Vector2i) -> void:
 
 func drop_item_for_tile(tile_id: int, tile_position: Vector2i) -> void:
 	var item_id: InventoryManager.ItemID = convert_tile_id_to_item_id(tile_id)
-	if item_id != null:
+	if item_id != InventoryManager.ItemID.EMPTY:
 		spawn_item_in_world(item_id, tile_position)
 		pass
 
@@ -64,7 +64,7 @@ func convert_tile_id_to_item_id(tile_id: int) -> InventoryManager.ItemID:
 	for item_id in InventoryManager.ItemID.values():
 		if item_id == tile_id and InventoryManager.drops_itself(item_id):
 			return item_id
-	return -1
+	return InventoryManager.ItemID.EMPTY
 
 func try_place_tile(tile: Vector2i) -> void:
 	var can_place := (
@@ -81,7 +81,6 @@ func try_place_tile(tile: Vector2i) -> void:
 
 func spawn_item_in_world(item_id: InventoryManager.ItemID, tile_position: Vector2i) -> void:
 	var tile_local_pos: Vector2 = tile_map.map_to_local(tile_position)
-	var tile_size: Vector2 = tile_map.tile_set.tile_size
 	
 	var tile_center_global: Vector2 = tile_map.to_global(tile_local_pos)
 

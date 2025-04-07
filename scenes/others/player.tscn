@@ -32,3 +32,4 @@ parent_node = NodePath("..")
 [node name="TileDestroy" parent="." instance=ExtResource("3_252aa")]
 
 [node name="UiControl" parent="." instance=ExtResource("4_dqkch")]
+process_mode = 3

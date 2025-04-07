@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dn7ux4nuecliu"]
+[gd_scene load_steps=3 format=3 uid="uid://dn7ux4nuecliu"]
 
 [ext_resource type="PackedScene" uid="uid://bdsdpu7j47p48" path="res://scenes/ui/inventory.tscn" id="1_4j2ex"]
+[ext_resource type="PackedScene" uid="uid://6tw412i6v8w" path="res://scenes/ui/crafting_ui.tscn" id="2_f5cxw"]
 
 [node name="Ui" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,3 +14,7 @@ grow_vertical = 2
 
 [node name="InventoryUI" parent="." instance=ExtResource("1_4j2ex")]
 layout_mode = 1
+
+[node name="CraftingUi" parent="." node_paths=PackedStringArray("inventory") instance=ExtResource("2_f5cxw")]
+layout_mode = 1
+inventory = NodePath("../InventoryUI")
