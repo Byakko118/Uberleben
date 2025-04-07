@@ -36,3 +36,7 @@ func _on_inventory_updated(changed_item_id: int, new_quantity: int) -> void:
 func _delete_slot() -> void:
 	item_id = -1
 	queue_free()
+
+
+func _on_select_pressed() -> void:
+	InventoryManager.set_selected_item(item_id)

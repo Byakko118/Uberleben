@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://oy63vv2t3pg8"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ov2id"]
+particle_flag_disable_z = true
+initial_velocity_max = 50.0
+angular_velocity_min = -120.76
+angular_velocity_max = 275.85
+gravity = Vector3(0, 98, 0)
+linear_accel_min = -50.0
+linear_accel_max = 50.0
+damping_min = 2.0
+damping_max = 2.0
+
+[node name="BlockBreakParticles" type="GPUParticles2D"]
+emitting = false
+amount = 30
+one_shot = true
+explosiveness = 1.0
+randomness = 0.45
+process_material = SubResource("ParticleProcessMaterial_ov2id")

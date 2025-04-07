@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=3 format=3 uid="uid://bfjqpivexwj1d"]
+
+[ext_resource type="Script" uid="uid://bqm61xm5qek5a" path="res://scripts/resources/item_stats.gd" id="1_562ki"]
+[ext_resource type="Texture2D" uid="uid://cb8f58f7dsw7u" path="res://resources/item_sprites/Planks.png" id="2_562ki"]
+
+[resource]
+script = ExtResource("1_562ki")
+id = 3
+texture = ExtResource("2_562ki")
+metadata/_custom_type_script = "uid://bqm61xm5qek5a"

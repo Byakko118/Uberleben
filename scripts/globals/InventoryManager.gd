@@ -3,21 +3,26 @@ extends Node
 signal inventory_updated(item_id: ItemID, new_quantity: int)
 signal selection_changed(new_selection: ItemID)  # Emit when selection changes
 
-enum ItemID { DIRT = 0, STONE, SAND }
+enum ItemID { EMPTY = -1, DIRT = 0, STONE, SAND, WOOD, PLANKS }
 
 # Initialize with starting quantities
 var items: Dictionary = {
-	ItemID.DIRT:  { "name": "dirt",  "quantity": 5, "is_placable": true, "drops_itself": true },
-	ItemID.STONE: { "name": "stone", "quantity": 12, "is_placable": true, "drops_itself": true },
-	ItemID.SAND:  { "name": "sand",  "quantity": 2, "is_placable": true, "drops_itself": true }
+	ItemID.EMPTY: { "name": "Empty",  "quantity": 0, "is_placable": false, "drops_itself": false },
+	ItemID.DIRT:  { "name": "Dirt",  "quantity": 5, "is_placable": true, "drops_itself": true },
+	ItemID.STONE: { "name": "Stone", "quantity": 12, "is_placable": true, "drops_itself": true },
+	ItemID.SAND:  { "name": "Sand",  "quantity": 2, "is_placable": true, "drops_itself": true },
+	ItemID.PLANKS:  { "name": "Planks",  "quantity": 2, "is_placable": true, "drops_itself": true },
+	ItemID.WOOD:  { "name": "Wood",  "quantity": 2, "is_placable": true, "drops_itself": true },
 }
 
-var selected_item: ItemID = ItemID.STONE  # Default selection (could also be null)
+var selected_item: ItemID = ItemID.EMPTY  # Default selection (could also be null)
 
 const ITEM_TEXTURES = {
 	ItemID.DIRT:  preload("res://resources/item_sprites/Dirt.png"),
 	ItemID.STONE: preload("res://resources/item_sprites/Stone.png"),
-	ItemID.SAND:  preload("res://resources/item_sprites/Sand.png")
+	ItemID.SAND:  preload("res://resources/item_sprites/Sand.png"),
+	ItemID.PLANKS:  preload("res://resources/item_sprites/Planks.png"),
+	ItemID.WOOD:  preload("res://resources/item_sprites/Wood.png"),
 }
 
 ### --- Item Quantity Management ---
@@ -31,7 +36,7 @@ func modify_item_quantity(item_id: ItemID, quantity: int) -> void:
 	
 	# If selected item runs out, auto-deselect it
 	if item_id == selected_item and items[item_id]["quantity"] <= 0:
-		set_selected_item(0)
+		set_selected_item(-1)
 
 ### --- Selection Management ---
 func set_selected_item(item_id: ItemID) -> void:

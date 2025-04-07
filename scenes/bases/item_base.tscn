@@ -6,12 +6,13 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_p314r"]
 radius = 22.561
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_314vj"]
-size = Vector2(32, 32)
+[sub_resource type="CircleShape2D" id="CircleShape2D_314vj"]
+radius = 16.0312
 
 [node name="ItemBase" type="RigidBody2D" groups=["Item"]]
 collision_layer = 2
 collision_mask = 5
+can_sleep = false
 script = ExtResource("1_p314r")
 
 [node name="PickupArea" type="Area2D" parent="."]
@@ -20,7 +21,7 @@ script = ExtResource("1_p314r")
 shape = SubResource("CircleShape2D_p314r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_314vj")
+shape = SubResource("CircleShape2D_314vj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_3vyo0")

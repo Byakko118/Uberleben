@@ -1,10 +1,10 @@
 extends Node2D
 
 # --- Constants & Exports ---
-const REACH_RANGE: float = 250.0
+const REACH_RANGE: float = 100.0
 
 # --- References ---
-@onready var tile_map: TileMapLayer = $"../../TestingGround"
+@onready var tile_map: TileMapLayer = $"../../MainTileset"
 @onready var player: CharacterBody2D = get_parent()
 
 # --- Initialization ---
@@ -101,3 +101,13 @@ func spawn_item_in_world(item_id: InventoryManager.ItemID, tile_position: Vector
 	# Position and add to scene
 	item.global_position = tile_center_global
 	get_tree().current_scene.add_child(item)
+	
+	# Apply impulse away from playerd
+	if item is RigidBody2D:
+		var direction = (item.global_position - player.global_position).normalized()
+		var impulse_strength = 150  # Adjust this value for more/less force
+		var random_variation = Vector2(randf_range(-0.3, 0.3), randf_range(-0.3, 0.3))  # Small random variation
+		var final_direction = (direction + random_variation).normalized()
+		
+		item.apply_central_impulse(final_direction * impulse_strength)
+		item.apply_torque_impulse(randf_range(-50, 50))  # Optional: add some spin
