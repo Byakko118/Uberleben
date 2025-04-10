@@ -3,7 +3,7 @@ extends Node
 signal inventory_updated(item_id: ItemID, new_quantity: int)
 signal selection_changed(new_selection: ItemID)  # Emit when selection changes
 
-enum ItemID { EMPTY = -1, DIRT = 0, STONE, SAND, WOOD, PLANKS }
+enum ItemID { EMPTY = -1, DIRT = 0, STONE, SAND, WOOD, PLANKS, IRON, COAL, RUBY, DIAMOND, COPPER }
 
 # Initialize with starting quantities
 var items: Dictionary = {
@@ -13,6 +13,11 @@ var items: Dictionary = {
 	ItemID.SAND:  { "name": "Sand",  "quantity": 2, "is_placable": true, "drops_itself": true },
 	ItemID.PLANKS:  { "name": "Bretter",  "quantity": 2, "is_placable": true, "drops_itself": true },
 	ItemID.WOOD:  { "name": "Holz",  "quantity": 2, "is_placable": true, "drops_itself": true },
+	ItemID.IRON:  { "name": "Eisen",  "quantity": 2, "is_placable": false, "drops_itself": true },
+	ItemID.COAL:  { "name": "Kohle",  "quantity": 2, "is_placable": false, "drops_itself": true },
+	ItemID.RUBY:  { "name": "Rubin",  "quantity": 2, "is_placable": false, "drops_itself": true },
+	ItemID.DIAMOND:  { "name": "Diamant",  "quantity": 2, "is_placable": false, "drops_itself": true },
+	ItemID.COPPER:  { "name": "Kupfer",  "quantity": 2, "is_placable": false, "drops_itself": true },
 }
 
 var selected_item: ItemID = ItemID.EMPTY  # Default selection (could also be null)
@@ -23,6 +28,11 @@ const ITEM_TEXTURES = {
 	ItemID.SAND:  preload("res://resources/item_sprites/Sand.png"),
 	ItemID.PLANKS:  preload("res://resources/item_sprites/Planks.png"),
 	ItemID.WOOD:  preload("res://resources/item_sprites/Wood.png"),
+	ItemID.IRON:  preload("res://resources/item_sprites/iron.png"),
+	ItemID.COAL:  preload("res://resources/item_sprites/coal.png"),
+	ItemID.RUBY:  preload("res://resources/item_sprites/ruby.png"),
+	ItemID.DIAMOND:  preload("res://resources/item_sprites/diamond.png"),
+	ItemID.COPPER: preload("res://resources/item_sprites/copper.png")
 }
 
 ### --- Item Quantity Management ---

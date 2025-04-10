@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=3 format=3 uid="uid://c1kaf87xhy7nm"]
+
+[ext_resource type="Script" uid="uid://bqm61xm5qek5a" path="res://scripts/resources/item_stats.gd" id="1_m3low"]
+[ext_resource type="Texture2D" uid="uid://b8qfjgjqn3cug" path="res://resources/item_sprites/coal.png" id="2_m3low"]
+
+[resource]
+script = ExtResource("1_m3low")
+id = 6
+texture = ExtResource("2_m3low")
+metadata/_custom_type_script = "uid://bqm61xm5qek5a"
