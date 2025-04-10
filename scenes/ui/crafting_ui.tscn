@@ -17,7 +17,7 @@ corner_radius_bottom_left = 10
 shadow_offset = Vector2(5, 5)
 anti_aliasing = false
 
-[node name="CraftingUi" type="Control"]
+[node name="CraftingUi" type="Control" node_paths=PackedStringArray("input")]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -26,6 +26,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_efemu")
+input = NodePath("MainContainer/MarginContainer/HBoxContainer/LineEdit")
 
 [node name="MainContainer" type="Panel" parent="."]
 custom_minimum_size = Vector2(700, 100)
@@ -63,3 +64,5 @@ alignment = 1
 [node name="Button" type="Button" parent="MainContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "Erstellen"
+
+[connection signal="pressed" from="MainContainer/MarginContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]

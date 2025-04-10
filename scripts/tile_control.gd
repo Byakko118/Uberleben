@@ -88,8 +88,11 @@ func spawn_item_in_world(item_id: InventoryManager.ItemID, tile_position: Vector
 	var item_scene: PackedScene = load("res://scenes/bases/item_base.tscn")
 	var item: ItemBase = item_scene.instantiate()
 
-	# Load matching resource
-	var resource_path := "res://resources/custom_resources/%s.tres" % InventoryManager.get_item_name(item_id).to_lower()
+	# Get the enum name as string (e.g., "DIRT", "STONE")
+	var enum_name: String = InventoryManager.ItemID.keys()[item_id + 1]
+	
+	# Load matching resource using the enum name directly
+	var resource_path := "res://resources/custom_resources/%s.tres" % enum_name.to_lower()
 	if ResourceLoader.exists(resource_path):
 		item.item_stats = load(resource_path)
 	else:
@@ -101,7 +104,7 @@ func spawn_item_in_world(item_id: InventoryManager.ItemID, tile_position: Vector
 	item.global_position = tile_center_global
 	get_tree().current_scene.add_child(item)
 	
-	# Apply impulse away from playerd
+	# Apply impulse away from player
 	if item is RigidBody2D:
 		var direction = (item.global_position - player.global_position).normalized()
 		var impulse_strength = 150  # Adjust this value for more/less force

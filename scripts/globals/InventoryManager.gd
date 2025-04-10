@@ -8,21 +8,11 @@ enum ItemID { EMPTY = -1, DIRT = 0, STONE, SAND, WOOD, PLANKS }
 # Initialize with starting quantities
 var items: Dictionary = {
 	ItemID.EMPTY: { "name": "Empty",  "quantity": 0, "is_placable": false, "drops_itself": false },
-	ItemID.DIRT:  { "name": "Dirt",  "quantity": 5, "is_placable": true, "drops_itself": true },
-	ItemID.STONE: { "name": "Stone", "quantity": 12, "is_placable": true, "drops_itself": true },
+	ItemID.DIRT:  { "name": "Erde",  "quantity": 5, "is_placable": true, "drops_itself": true },
+	ItemID.STONE: { "name": "Stein", "quantity": 12, "is_placable": true, "drops_itself": true },
 	ItemID.SAND:  { "name": "Sand",  "quantity": 2, "is_placable": true, "drops_itself": true },
-	ItemID.PLANKS:  { "name": "Planks",  "quantity": 2, "is_placable": true, "drops_itself": true },
-	ItemID.WOOD:  { "name": "Wood",  "quantity": 2, "is_placable": true, "drops_itself": true },
-}
-
-# Crafting recepies
-var crafting_recipes: Dictionary = {
-	ItemID.PLANKS: {
-		"code": ["brett", "planke"],  # Multiple input phrases
-		"output_quantity": 4,
-		"inputs": { ItemID.WOOD: 1 },        # Simplified input format
-		"category": "basic",
-	},
+	ItemID.PLANKS:  { "name": "Bretter",  "quantity": 2, "is_placable": true, "drops_itself": true },
+	ItemID.WOOD:  { "name": "Holz",  "quantity": 2, "is_placable": true, "drops_itself": true },
 }
 
 var selected_item: ItemID = ItemID.EMPTY  # Default selection (could also be null)
