@@ -25,6 +25,10 @@ CraftingManager="*res://scripts/globals/CraftingManager.gd"
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gaea/plugin.cfg")
+
 [global_group]
 
 Player=""
